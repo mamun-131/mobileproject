@@ -34,18 +34,19 @@ apps.get('/inventory', (req,res) =>{
 
     apps.get('/inventory/:id', (req,res) =>{
         // console.log('ok');
-        // var worksheet = workbook.getWorksheet('Sheet1');
-        // var MaterialRowData = [];
-        // for (i = 2; i <= worksheet.rowCount; i++) {
-        //     MaterialRowData.push(new MaterialData(worksheet.getRow(i).getCell(1).value,
-        //                                         worksheet.getRow(i).getCell(2).value, 
-        //                                         worksheet.getRow(i).getCell(3).value, 
-        //                                         worksheet.getRow(i).getCell(4).value));}
+        var worksheet = workbook.getWorksheet('Sheet1');
+        var MaterialRowData = [];
+        for (i = 2; i <= worksheet.rowCount; i++) {
+            MaterialRowData.push(new MaterialData(worksheet.getRow(i).getCell(1).value,
+                                                worksheet.getRow(i).getCell(2).value, 
+                                                worksheet.getRow(i).getCell(3).value, 
+                                                worksheet.getRow(i).getCell(4).value));}
+         const result = MaterialRowData.find( ({ Material }) => Material === req.params.id );
         // const json = JSON.stringify(MaterialRowData);
         // console.log(json); 
         // res.json(json);
-        res.send('user: ' + req.params.id); 
-        });
+         res.send(result); 
+    });
 
 //const result = inventory.find( ({ name }) => name === 'cherries' );
 //apps.listen(3000,()=> {console.log("Listinging at port 3000.....");});

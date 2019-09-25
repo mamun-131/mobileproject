@@ -1,13 +1,5 @@
 const express = require('express');
-
 var apps = express();
-
-const PORT = 8080;
-//const PORT = 2000;
-const HOST = '0.0.0.0';
-//const HOST = '127.0.0.1';
-
-
 var morgan = require('morgan');
 apps.use(morgan('combined'));
 
@@ -30,6 +22,5 @@ res.json(json);
 
 });
 
-apps.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+apps.listen(3000,()=> {console.log("Listinging at port 3000.....");});
 

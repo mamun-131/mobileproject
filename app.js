@@ -17,7 +17,7 @@ row.push(rows.values);
 });
 const json = JSON.stringify(row);
 console.log(json); 
-res.json(json);
+res.json(row);
 //res.json({Name: worksheet.getCell(2,1).value, No: worksheet.getCell(2,2).value});
 
 });

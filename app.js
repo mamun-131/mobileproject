@@ -3,6 +3,13 @@ var apps = express();
 var morgan = require('morgan');
 apps.use(morgan('combined'));
 
+
+function MyData(Name, No) {
+    this.mName = Name;
+    this.mNo = No;
+}; 
+var MyRowData = [];
+
 var Excel = require('exceljs');
 var workbook = new Excel.Workbook();
 workbook.xlsx.readFile('data1.xlsx');
@@ -15,15 +22,16 @@ var col = [];
 worksheet.eachRow((rows, rownumber) =>{
 row.push(rows.values);
 });
-const json = JSON.stringify(row);
+for (i = 1; i <= worksheet.rowCount; i++) {
+    MyRowData.push(new MyData(worksheet.getRow(i).getCell(1).value,worksheet.getRow(i).getCell(2).value));
+
+}
+const json = JSON.stringify(MyRowData);
 console.log(json); 
 
-for (i = 1; i <= worksheet.rowCount; i++) {
-    console.log(worksheet.getRow(i).getCell(1).value);
-    console.log(worksheet.getRow(i).getCell(2).value);
-}
 
-res.json(row);
+
+res.json(json);
 //res.json({Name: worksheet.getCell(2,1).value, No: worksheet.getCell(2,2).value});
 
 });

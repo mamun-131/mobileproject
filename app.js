@@ -47,8 +47,9 @@ apps.get('/inventory', (req,res) =>{
         // res.json(json);
         //const result = MaterialRowData.find( ({ data }) => data[0].Material === req.params.id );
        // console.log(JSON.stringify(MaterialRowData[0].Material)); 
-       var picked = MaterialRowData.Material.find(({data}) => data === req.params.id );
-         res.json(picked); 
+       var output = MaterialRowData.filter(function(value){ return value.Material== req.params.id;});
+       //var picked = MaterialRowData.find(({data}) => data === req.params.id );
+         res.json(output); 
     });
 
 //const result = inventory.find( ({ name }) => name === 'cherries' );

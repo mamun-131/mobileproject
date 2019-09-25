@@ -1,7 +1,10 @@
-FROM node:10
+FROM node.10.16.3-alpine
+
+RUN mkdir /app
+ADD . /app
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /app
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
@@ -17,3 +20,11 @@ COPY . .
 
 EXPOSE 8080
 CMD [ "node", "server.js" ]
+
+#CMD node app.js --bind 0.0.0.0:$PORT
+
+
+################ Docker Command ######################
+#cd doodle\cheers2019 ; docker build -t mamun131/cheers2019 .
+#docker run -it --rm mamun131/cheers2019
+#docker login ; docker push mamun131/cheers2019

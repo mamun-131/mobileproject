@@ -18,10 +18,10 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 8080
-CMD [ "node", "server.js" ]
+#EXPOSE 8080
+#CMD [ "node", "server.js" ]
 
-#CMD node app.js --bind 0.0.0.0:$PORT
+CMD node app.js --bind 0.0.0.0:$PORT
 
 
 ################ Docker Command ######################

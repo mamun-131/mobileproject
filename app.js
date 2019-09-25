@@ -25,7 +25,7 @@ var worksheet = workbook.getWorksheet('Sheet1');
 //row.push(rows.values);
 //});
 for (i = 2; i <= worksheet.rowCount; i++) {
-    MaterialRowData.push(new MaterialData(worksheet.getRow(i).getCell(1).value,
+    MaterialRowData.push( MaterialData(worksheet.getRow(i).getCell(1).value,
                                         worksheet.getRow(i).getCell(2).value, 
                                         worksheet.getRow(i).getCell(3).value, 
                                         worksheet.getRow(i).getCell(4).value));

@@ -10,28 +10,22 @@ function MaterialData(Material, Plant, Storage_Location, Inventory) {
     this.Storage_Location = Storage_Location;
     this.Inventory = Inventory;
 }; 
-var MaterialRowData = [];
+
 
 var Excel = require('exceljs');
 var workbook = new Excel.Workbook();
 workbook.xlsx.readFile('data1.xlsx');
-function getData() {
-console.log('ok');
-    var worksheet = workbook.getWorksheet('Sheet1');
 
+
+apps.get('/', (req,res) =>{
+    console.log('ok');
+    var worksheet = workbook.getWorksheet('Sheet1');
+    var MaterialRowData = [];
     for (i = 2; i <= worksheet.rowCount; i++) {
         MaterialRowData.push(new MaterialData(worksheet.getRow(i).getCell(1).value,
                                             worksheet.getRow(i).getCell(2).value, 
                                             worksheet.getRow(i).getCell(3).value, 
                                             worksheet.getRow(i).getCell(4).value));}
-}
-//to make array empty
-//MaterialRowData = [];
-
-getData();
-
-apps.get('/', (req,res) =>{
-
     const json = JSON.stringify(MaterialRowData);
     console.log(json); 
     res.json(json);

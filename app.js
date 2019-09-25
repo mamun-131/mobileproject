@@ -45,9 +45,9 @@ apps.get('/inventory', (req,res) =>{
          const json = JSON.stringify(MaterialRowData);
          console.log(MaterialRowData); 
         // res.json(json);
-        const result = MaterialRowData.find( ({ data }) => data[1].Material === req.params.id );
-        console.log(JSON.stringify(result)); 
-         res.json(result); 
+        //const result = MaterialRowData.find( ({ data }) => data[0].Material === req.params.id );
+        console.log(JSON.stringify(MaterialRowData[0].Material)); 
+         res.json(MaterialRowData[0].Material); 
     });
 
 //const result = inventory.find( ({ name }) => name === 'cherries' );

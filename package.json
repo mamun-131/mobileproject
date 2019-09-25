@@ -1,0 +1,21 @@
+{
+  "name": "mobileapp",
+  "version": "1.0.0",
+  "description": "micro service for mobile app",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "underscore": "^1.9.1",
+    "body-parser": "^1.19.0",
+    "exceljs": "^1.13.0",
+    "express": "^4.17.1",
+    "line-reader": "^0.4.0",
+    "mongoose": "^5.6.3",
+    "morgan": "^1.9.1",
+    "mssql": "^5.1.0"
+  }
+}

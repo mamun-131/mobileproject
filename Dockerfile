@@ -1,4 +1,5 @@
-FROM node.10.16.3-alpine
+#FROM node.10.16.3-alpine
+FROM node:10
 
 RUN mkdir /app
 ADD . /app
@@ -13,15 +14,15 @@ COPY package*.json ./
 
 RUN npm install
 # If you are building your code for production
-# RUN npm ci --only=production
+ RUN npm ci --only=production
 
 # Bundle app source
 COPY . .
 
-#EXPOSE 8080
-#CMD [ "node", "server.js" ]
+EXPOSE 8080
+CMD [ "node", "server.js" ]
 
-CMD node app.js --bind 0.0.0.0:$PORT
+#CMD node app.js --bind 0.0.0.0:$PORT
 
 
 ################ Docker Command ######################

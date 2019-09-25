@@ -33,7 +33,7 @@ apps.get('/inventory', (req,res) =>{
     });
 
     apps.get('/inventory/:id', (req,res) =>{
-        // console.log('ok');
+         console.log(req.params.id);
         var worksheet = workbook.getWorksheet('Sheet1');
         var MaterialRowData = [];
         for (i = 2; i <= worksheet.rowCount; i++) {
@@ -45,7 +45,7 @@ apps.get('/inventory', (req,res) =>{
          const json = JSON.stringify(MaterialRowData);
          console.log(json); 
         // res.json(json);
-        const result = MaterialRowData.find( ({ data }) => data[0].Material === req.params.id );
+        const result = MaterialRowData.find( ({ data }) => data[1].Material === req.params.id );
         console.log(JSON.stringify(result)); 
          res.json(result); 
     });

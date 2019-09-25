@@ -28,7 +28,7 @@ apps.get('/inventory', (req,res) =>{
                                             worksheet.getRow(i).getCell(4).value));}
     const json = JSON.stringify(MaterialRowData);
     console.log(json); 
-    res.json(json);
+    res.json(MaterialRowData);
 
     });
 
@@ -41,10 +41,11 @@ apps.get('/inventory', (req,res) =>{
                                                 worksheet.getRow(i).getCell(2).value, 
                                                 worksheet.getRow(i).getCell(3).value, 
                                                 worksheet.getRow(i).getCell(4).value));}
-         const result = MaterialRowData.find( ({ Material }) => Material === req.params.id );
-        // const json = JSON.stringify(MaterialRowData);
+         
+         const json = JSON.stringify(MaterialRowData);
         // console.log(json); 
         // res.json(json);
+        const result = json.find( ({ Material }) => Material === req.params.id );
          res.send(result); 
     });
 

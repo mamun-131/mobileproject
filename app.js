@@ -46,8 +46,9 @@ apps.get('/inventory', (req,res) =>{
          console.log(MaterialRowData); 
         // res.json(json);
         //const result = MaterialRowData.find( ({ data }) => data[0].Material === req.params.id );
-        console.log(JSON.stringify(MaterialRowData[0].Material)); 
-         res.json(MaterialRowData.Material); 
+       // console.log(JSON.stringify(MaterialRowData[0].Material)); 
+       var picked = lodash.filter(MaterialRowData, { 'Material': req.params.id} );
+         res.json(picked); 
     });
 
 //const result = inventory.find( ({ name }) => name === 'cherries' );

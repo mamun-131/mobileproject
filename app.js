@@ -43,7 +43,7 @@ apps.get('/inventory', (req,res) =>{
                                                 worksheet.getRow(i).getCell(4).value));}
          
          const json = JSON.stringify(MaterialRowData);
-         console.log(json); 
+         console.log(MaterialRowData); 
         // res.json(json);
         const result = MaterialRowData.find( ({ data }) => data[1].Material === req.params.id );
         console.log(JSON.stringify(result)); 

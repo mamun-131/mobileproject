@@ -28,6 +28,10 @@ apps.get('/inventory', (req,res) =>{
                                             worksheet.getRow(i).getCell(4).value));}
     const json = JSON.stringify(MaterialRowData);
     console.log(json); 
+	    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
+    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type'); // If needed
+    res.setHeader('Access-Control-Allow-Credentials', true); // If needed
     res.json(MaterialRowData);
 
     });
@@ -42,13 +46,9 @@ apps.get('/inventory', (req,res) =>{
                                                 worksheet.getRow(i).getCell(3).value, 
                                                 worksheet.getRow(i).getCell(4).value));}
          
-         const json = JSON.stringify(MaterialRowData);
-         console.log(MaterialRowData); 
-        // res.json(json);
-        //const result = MaterialRowData.find( ({ data }) => data[0].Material === req.params.id );
-       // console.log(JSON.stringify(MaterialRowData[0].Material)); 
+        //  const json = JSON.stringify(MaterialRowData);
+        //  console.log(MaterialRowData); 
        var output = MaterialRowData.filter(function(value){ return value.Material== req.params.id;});
-       //var picked = MaterialRowData.find(({data}) => data === req.params.id );
          res.json(output); 
     });
 
